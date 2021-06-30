@@ -5,7 +5,9 @@ public class RawData {
     private int roadNumber;
     private String road;
     private String fromTo;
+    private int fromToNumber;
     private String roadName;
+    private int roadNameNumber;
     private double distance;
     private double speed;
     private String color;
@@ -16,13 +18,17 @@ public class RawData {
        
     }
     
-    public RawData(String date, int roadNumber, String road, String fromTo, String roadName, double distance,
-            double speed, String color) {
+    
+    
+    public RawData(String date, int roadNumber, String road, String fromTo, int fromToNumber, String roadName,
+            int roadNameNumber, double distance, double speed, String color) {
         this.date = date;
         this.roadNumber = roadNumber;
         this.road = road;
         this.fromTo = fromTo;
+        this.fromToNumber = fromToNumber;
         this.roadName = roadName;
+        this.roadNameNumber = roadNameNumber;
         this.distance = distance;
         this.speed = speed;
         this.color = color;
@@ -40,6 +46,24 @@ public class RawData {
         this.speed = speed;
         this.color = color;
         setStatus(color);
+    }
+    
+    
+
+    public int getFromToNumber() {
+        return fromToNumber;
+    }
+
+    public void setFromToNumber(int fromToNumber) {
+        this.fromToNumber = fromToNumber;
+    }
+
+    public int getRoadNameNumber() {
+        return roadNameNumber;
+    }
+
+    public void setRoadNameNumber(int roadNameNumber) {
+        this.roadNameNumber = roadNameNumber;
     }
 
     public String getDate() {
@@ -128,8 +152,8 @@ public class RawData {
         return writeOnCSV;
     }
 
-    public void setWriteOnCSV(String date, int roadNumber, String road, String fromTo, String roadName, double distance,
-            double speed, String color) {
+    public void setWriteOnCSV(String date, int roadNumber, String road, String fromTo, String roadName,
+            double distance, double speed, String color) {
         this.writeOnCSV = new String[9];
         writeOnCSV[0] = date;
         writeOnCSV[1] = "" + roadNumber;

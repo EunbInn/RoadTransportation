@@ -60,6 +60,7 @@ public class WebParser {
                     
                     Thread.sleep(2000);
                     System.out.println("<" + road + ">");
+                    int fromNum = 1;
                     String fromTo = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[1]/div/div[1]/div[2]/ul/li[1]/a")).getText();
                     System.out.println("---------------------------" + fromTo);
                     int i = 1;
@@ -79,7 +80,7 @@ public class WebParser {
                                 speed = "0";
                             }
                             double ispeed = Double.parseDouble(speed);
-                            raw = new RawData(time, roadInt, road, fromTo, roadName, distance, ispeed, color);
+                            raw = new RawData(time, roadInt, road, fromTo, fromNum, roadName, i, distance, ispeed, color);
                             rawDatas.add(raw);
                             i++;
                         } catch (NoSuchElementException e) {
@@ -94,6 +95,7 @@ public class WebParser {
                     Thread.sleep(2000);
                     
                     fromTo = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[1]/div/div[1]/div[2]/ul/li[2]/a")).getText();
+                    fromNum = 2;
                     System.out.println("---------------------------" + fromTo);
                     int j = 1;
                     while (true) {
@@ -112,7 +114,7 @@ public class WebParser {
                                 speed = "0";
                             }
                             double ispeed = Double.parseDouble(speed);
-                            raw = new RawData(time, roadInt, road, fromTo, roadName, distance, ispeed, color);
+                            raw = new RawData(time, roadInt, road, fromTo, fromNum, roadName, j, distance, ispeed, color);
                             rawDatas.add(raw);
                             j++;
                         } catch (NoSuchElementException e) {

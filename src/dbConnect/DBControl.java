@@ -18,9 +18,9 @@ public class DBControl {
             stmt = con.createStatement();
             for (int i = 0; i < rawDatas.size(); i++) {
                 RawData raw = rawDatas.get(i);
-                query = String.format("insert into roadplus(date, roadNumber, road, fromTo, roadName, distance, speed, color, status) "
-                        + "values('%s', %d, '%s', '%s', '%s', %f, %f, '%s', '%s');"
-                        , raw.getDate(), raw.getRoadNumber(), raw.getRoad(), raw.getFromTo(), raw.getRoadName(), raw.getDistance(), raw.getSpeed(),
+                query = String.format("insert into roadplus(date, roadNumber, road, fromTo, fromToNumber, roadName, roadNameOrder, distance, speed, color, status) "
+                        + "values('%s', %d, '%s', '%s', %d, '%s', %d, %f, %f, '%s', '%s');"
+                        , raw.getDate(), raw.getRoadNumber(), raw.getRoad(), raw.getFromTo(), raw.getFromToNumber(), raw.getRoadName(), raw.getRoadNameNumber(), raw.getDistance(), raw.getSpeed(),
                         raw.getColor(), raw.getStatus());
                 stmt.execute(query);
             }
